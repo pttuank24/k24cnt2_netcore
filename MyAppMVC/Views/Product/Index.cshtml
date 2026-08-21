@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+}
+<h2>Quản lý sản phẩm</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Created At</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Price.ToString("N0") đ</td>
+                <td>@item.CreatedAt.ToString("dd-MM-yyyy")</td>
+                <td><img src="~/images/@item.Image" width="40" /></td>
+                <td>
+                    <a asp-action="View" asp-route-id="@item.Id" class="btn btn-success btn-sm">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

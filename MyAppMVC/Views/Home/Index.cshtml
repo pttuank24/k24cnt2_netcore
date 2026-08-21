@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<!-- Banner -->
+<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/banner1.png.png" class="d-block w-100" alt="Banner">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<h3 class="mt-4">Danh sách sản phẩm</h3>
+
+<div class="row">
+    @for (int i = 1; i <= 4; i++)
+    {
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <img src="~/images/product@(i).webp" class="card-img-top" alt="Product @i">
+                <div class="card-body text-center">
+                    <p class="card-title">Product Name @i</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
