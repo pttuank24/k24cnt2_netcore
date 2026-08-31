@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Danh sách tài khoản";
+    var pttAccounts = ViewBag.PttAccounts;
+}
+
+<div class="row">
+    @foreach (PttAccount item in pttAccounts)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+
+                    <div class="img-fluid">
+                        <img src="@item.Avatar" alt="@item.Name"
+                             class="img-fluid" />
+                    </div>
+
+                    <div class="">
+                        <h3>@item.Name</h3>
+                        <p>@item.Bio</p>
+
+                        <a asp-route="PttProfile" asp-route-id="@item.Id" class="btn btn-success">
+                            Profile
+                           
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
