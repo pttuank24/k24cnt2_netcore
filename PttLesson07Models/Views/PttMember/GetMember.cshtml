@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Thông tin member";
+    var member = Model as PttLesson07Models.Models.DataModels.PttMember;
+}
+
+<div class="alert alert-info">
+    <h1>@ViewData["Title"]</h1>
+    @* <p>Member id: @ViewBag.Member.PttMemberId</p>
+    <p>UserName: @ViewBag.Member.PttUserName</p>
+    <p>UserName: @ViewBag.Member.PttPassword</p>
+    <p>UserName: @ViewBag.Member.PttFullName</p>
+    <p>UserName: @ViewBag.Member.PttEmail</p> *@
+
+    <p>Memberid: @member.PttMemberId</p>
+    <p>UserName: @member.PttUserName</p>
+    <p>UserName: @member.PttPassword</p>
+    <p>UserName: @member.PttFullName</p>
+    <p>UserName: @member.PttEmail</p>
+</div>
