@@ -1,0 +1,64 @@
+@model IEnumerable<PttLesson08Models.Models.PttMember>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="card p-3">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+        <a asp-action="PttCreate">Thêm mới</a>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PttMemberId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PttUserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PttPassword)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PttFullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PttEmail)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PttMemberId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PttUserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PttPassword)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PttFullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PttEmail)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Sửa", "PttEdit", new { id = item.PttMemberId }) |
+                            @Html.ActionLink("Xem chi tiết", "PttDetails", new { id = item.PttMemberId }) |
+                            @Html.ActionLink("Xóa", "PttDelete", new { id = item.PttMemberId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+@model PttLesson08Models.Models.PttMember
+
+@{
+    ViewData["Title"] = "Thông tin chi tiết thành viên";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>PttMember</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PttMemberId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PttMemberId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PttUserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PttUserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PttPassword)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PttPassword)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PttFullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PttFullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PttEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PttEmail)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Sửa", "PttEdit", new { id = Model.PttMemberId }) |
+    <a asp-action="Index">Back to List</a>
+</div>
