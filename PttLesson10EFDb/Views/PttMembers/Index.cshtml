@@ -1,0 +1,65 @@
+@model IEnumerable<PttLesson10EFDb.Models.PttMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PttUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.PttUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PttPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PttFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PttEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PttPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PttStatus)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
