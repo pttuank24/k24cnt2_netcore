@@ -1,0 +1,60 @@
+@model IEnumerable<Ptt2410900082_exam.Models.PttEmployee>
+
+@{
+    ViewData["Title"] = "Danh sách nhân viên";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Danh sách nhân viên</h2>
+    <a asp-action="Create" class="btn btn-primary">+ Thêm mới</a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <table class="table table-hover table-striped align-middle mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.PttName)</th>
+                    <th>@Html.DisplayNameFor(model => model.PttGender)</th>
+                    <th>@Html.DisplayNameFor(model => model.PttBirthday)</th>
+                    <th>@Html.DisplayNameFor(model => model.PttEmail)</th>
+                    <th>@Html.DisplayNameFor(model => model.PttPhone)</th>
+                    <th class="text-center">@Html.DisplayNameFor(model => model.PttActive)</th>
+                    <th class="text-center">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.PttName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PttGender)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PttBirthday)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PttEmail)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PttPhone)</td>
+                        <td class="text-center">
+                            @if (item.PttActive)
+                            {
+                                <span class="badge bg-success">Hoạt động</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Ngừng</span>
+                            }
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Sửa</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white">Chi tiết</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Xoá</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (!Model.Any())
+        {
+            <p class="text-center text-muted my-3">Chưa có dữ liệu nhân viên nào.</p>
+        }
+    </div>
+</div>
